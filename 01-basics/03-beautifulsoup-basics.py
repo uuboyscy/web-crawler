@@ -16,7 +16,7 @@ select_one() and find(): the first matching Tag directly, or None if absent.
 import requests
 from bs4 import BeautifulSoup
 
-url = "https://www.ptt.cc/bbs/photo/index.html"
+url = "https://www.ptt.cc/bbs/movie/index.html"
 res = requests.get(url, timeout=10)
 soup = BeautifulSoup(res.text, "html.parser")
 
