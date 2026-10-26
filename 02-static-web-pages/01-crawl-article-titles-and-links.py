@@ -6,6 +6,9 @@ from urllib.parse import urljoin
 import requests
 from bs4 import BeautifulSoup
 
+headers = {
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+}
 url = "https://www.ptt.cc/bbs/photo/index.html"
 page_count = 5
 
@@ -13,7 +16,7 @@ for page in range(1, page_count + 1):
     print(f"\n========== Page {page} ==========")
     print(url)
 
-    res = requests.get(url, timeout=10)
+    res = requests.get(url, headers=headers, timeout=10)
     soup = BeautifulSoup(res.text, "html.parser")
 
     # Select article links; deleted articles without links are skipped.

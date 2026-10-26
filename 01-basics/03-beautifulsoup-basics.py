@@ -16,8 +16,11 @@ select_one() and find(): the first matching Tag directly, or None if absent.
 import requests
 from bs4 import BeautifulSoup
 
+headers = {
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+}
 url = "https://www.ptt.cc/bbs/movie/index.html"
-res = requests.get(url, timeout=10)
+res = requests.get(url, headers=headers, timeout=10)
 soup = BeautifulSoup(res.text, "html.parser")
 
 # Extract and clean the page title.
