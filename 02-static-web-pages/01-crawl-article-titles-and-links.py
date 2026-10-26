@@ -19,9 +19,11 @@ for page in range(1, page_count + 1):
     # Select article links; deleted articles without links are skipped.
     links = soup.select(".title a")
     for link in links:
-        print(link.get_text(strip=True))
+        article_title = link.get_text(strip=True)
+        print(article_title)
         # PTT uses relative links. Convert them into complete URLs.
-        print(urljoin(url, link["href"]))
+        article_url = urljoin(url, link["href"])
+        print(article_url)
 
     if page == page_count:
         break
