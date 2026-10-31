@@ -28,9 +28,6 @@ for page in range(1, page_count + 1):
         article_url = urljoin(url, link["href"])
         print(article_url)
 
-    if page == page_count:
-        break
-
     # Find the previous board page by its label instead of guessing its number.
     previous_page = soup.find("a", string="‹ 上頁")
     if previous_page is None:
