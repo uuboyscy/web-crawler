@@ -16,7 +16,6 @@ url = "https://www.ptt.cc/bbs/Gossiping/index.html"
 cookies = {"over18": "1"}
 
 response = requests.get(url, headers=headers, cookies=cookies, timeout=10)
-response.raise_for_status()
 soup = BeautifulSoup(response.content, "html.parser")
 
 for link in soup.select("div.title a"):
